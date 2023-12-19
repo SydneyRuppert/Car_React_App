@@ -8,7 +8,7 @@ export const server_calls = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 'x-access-token': `Bearer ${token}`
             }
 
@@ -17,7 +17,7 @@ export const server_calls = {
         if (!response.ok){
             throw new Error('Failed to fetch data from the server')
         }
-
+        console.log(response.json)
         return await response.json()
     },
 
@@ -27,7 +27,7 @@ export const server_calls = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 'x-access-token': `Bearer ${token}`
             },
             body: JSON.stringify(data)
@@ -37,7 +37,7 @@ export const server_calls = {
         if (!response.ok) {
             throw new Error('Failed to create new data on the server')
         }
-
+        console.log(response.json)
         return await response.json()
     },
 
@@ -47,7 +47,7 @@ export const server_calls = {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 'x-access-token': `Bearer ${token}`
             },
             body: JSON.stringify(data)
@@ -57,7 +57,7 @@ export const server_calls = {
         if (!response.ok) {
             throw new Error('Failed to update data on the server')
         }
-
+        console.log(response.json)
         return await response.json()
     },
 
@@ -67,7 +67,7 @@ export const server_calls = {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 'x-access-token': `Bearer ${token}`
             },
 

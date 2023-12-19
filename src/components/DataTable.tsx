@@ -8,8 +8,7 @@ import { useGetData } from '../custom-hooks/FetchData';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: "ID", width: 90, hideable: true},
-    { field: 'first', headerName: "Contact First Name", flex: 1},
-    { field: 'last', headerName: "Contact Last Name", flex: 1},
+    { field: 'name', headerName: "Contacts Full Name", flex: 1},
     { field: 'email', headerName: "Email", flex: 1},
     { field: 'phone_number', headerName: "Phone Number", flex: 1},
     { field: 'address', headerName: "Address", flex: 1},

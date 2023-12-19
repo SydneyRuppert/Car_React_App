@@ -4,7 +4,7 @@ import Input from "./Input"
 import { useForm } from 'react-hook-form'
 import { server_calls } from "../api/server"
 import { useDispatch, useStore } from 'react-redux'
-import { chooseFirst, chooseLast, chooseEmail, chooseAddress, choosePhone, chooseMake, chooseModel, chooseYear } from '../redux/slices/RootSlice'
+import { chooseFirst, chooseEmail, chooseAddress, choosePhone, chooseMake, chooseModel, chooseYear } from '../redux/slices/RootSlice'
 
 interface InvenoryFormProps {
   id?: string[]
@@ -24,7 +24,6 @@ const InventoryForm = ( props:InvenoryFormProps) => {
       console.log(`Updated: ${ data.first } ${ props.id }`)
     } else {
       dispatch(chooseFirst(data.first));
-      dispatch(chooseLast(data.last));
       dispatch(chooseEmail(data.email));
       dispatch(choosePhone(data.phone_number));
       dispatch(chooseAddress(data.address));
@@ -41,12 +40,8 @@ const InventoryForm = ( props:InvenoryFormProps) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="name">Contact Name</label>
-          <Input {...register('first')} name='first' placeholder="First" />
-        </div>
-        <div>
-          <label htmlFor="name">Contact Name</label>
-          <Input {...register('last')} name='last' placeholder="Last" />
+          <label htmlFor="name">Contacts Full Name</label>
+          <Input {...register('first')} name='first' placeholder="Full Name" />
         </div>
         <div>
           <label htmlFor="email">Email</label>
