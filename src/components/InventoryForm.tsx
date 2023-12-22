@@ -15,7 +15,7 @@ const InventoryForm = ( props:InvenoryFormProps) => {
   const dispatch = useDispatch();
   const store = useStore();
 
-  const onSubmit = (data: any, event: any) => {
+  const onSubmit = (data: any) => {
     console.log(`ID: ${typeof props.id}`);
     console.log(props.id)
     console.log(data)
