@@ -9,7 +9,8 @@ const rootSlice = createSlice({
         address: "Address",
         car_make:"Make",
         car_model:"Model",
-        car_year:"Year"
+        car_year:"Year",
+        uid: ""
     },
     reducers: {
         chooseName: (state, action) => { state.name = action.payload},
@@ -18,9 +19,10 @@ const rootSlice = createSlice({
         chooseAddress: (state, action) => { state.address = action.payload},
         chooseMake: (state, action) => { state.car_make = action.payload},
         chooseModel: (state, action) => { state.car_model = action.payload},
-        chooseYear: (state, action) => { state.car_year = action.payload}
+        chooseYear: (state, action) => { state.car_year = action.payload},
+        chooseUID:(state, action) => {state.uid = action.payload}
     }
 })
 
 export const reducer = rootSlice.reducer;
-export const { chooseName, chooseEmail, choosePhone, chooseAddress, chooseMake, chooseModel, chooseYear} = rootSlice.actions
+export const { chooseName, chooseEmail, choosePhone, chooseAddress, chooseMake, chooseModel, chooseYear, chooseUID} = rootSlice.actions

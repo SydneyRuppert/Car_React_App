@@ -1,10 +1,10 @@
 import Button from "./Button"
 import Input from "./Input"
-
+import { auth} from '../config/firebase'
 import { useForm } from 'react-hook-form'
 import { server_calls } from "../api/server"
 import { useDispatch, useStore } from 'react-redux'
-import { chooseName, chooseEmail, chooseAddress, choosePhone, chooseMake, chooseModel, chooseYear } from '../redux/slices/RootSlice'
+import { chooseName, chooseEmail, chooseAddress, choosePhone, chooseMake, chooseModel, chooseYear, chooseUID } from '../redux/slices/RootSlice'
 
 interface InvenoryFormProps {
   id?: string[]
@@ -19,20 +19,21 @@ const InventoryForm = ( props:InvenoryFormProps) => {
     console.log(`ID: ${typeof props.id}`);
     console.log(props.id)
     console.log(data)
+    dispatch(chooseName(data.name));
+    dispatch(chooseEmail(data.email));
+    dispatch(choosePhone(data.phone_number));
+    dispatch(chooseAddress(data.address));
+    dispatch(chooseMake(data.car_make));
+    dispatch(chooseModel(data.car_model));
+    dispatch(chooseYear(data.car_year));
+    dispatch(chooseUID(auth.currentUser?.uid));
+
     if (props.id && props.id.length > 0) {
-      server_calls.update(props.id[0], data)
+      server_calls.update(props.id[0], store.getState())
       console.log(`Updated: ${ data.name } ${ props.id }`)
       setTimeout(()=>{window.location.reload()}, 1000)
       //event.target.reset()
     } else {
-      dispatch(chooseName(data.name));
-      dispatch(chooseEmail(data.email));
-      dispatch(choosePhone(data.phone_number));
-      dispatch(chooseAddress(data.address));
-      dispatch(chooseMake(data.car_make));
-      dispatch(chooseModel(data.car_model));
-      dispatch(chooseYear(data.car_year));
-      
 
       server_calls.create(store.getState())
       setTimeout(()=>{window.location.reload()}, 1000)
