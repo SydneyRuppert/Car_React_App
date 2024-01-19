@@ -1,12 +1,12 @@
 
 export const server_calls = {
     get: async (uid?:string ) => { 
-        const response = await fetch(`http://127.0.0.1:5000/api/cars2/user/${uid}`,
+        const response = await fetch(`https://c2-flask.onrender.com/api/cars2/user/${uid}`,
         {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 
             }
 
@@ -20,12 +20,12 @@ export const server_calls = {
     },
 
     create: async (data: any = {}) => {
-        const response = await fetch(`http://127.0.0.1:5000/api/cars2`,
+        const response = await fetch(`https://c2-flask.onrender.com/api/cars2`,
         {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 
             },
             body: JSON.stringify(data)
@@ -40,12 +40,12 @@ export const server_calls = {
     },
 
     update: async (id: string, data:any = {}) => {
-        const response = await fetch(`http://127.0.0.1:5000/api/cars2/${id}`,
+        const response = await fetch(`https://c2-flask.onrender.com/api/cars2/${id}`,
         {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 
             },
             body: JSON.stringify(data)
@@ -60,12 +60,12 @@ export const server_calls = {
     },
 
     delete: async (id: string) => {
-        const response = await fetch(`http://127.0.0.1:5000/api/cars2/${id}`,
+        const response = await fetch(`https://c2-flask.onrender.com/api/cars2/${id}`,
         {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'no-cors',
                 
             },
 
