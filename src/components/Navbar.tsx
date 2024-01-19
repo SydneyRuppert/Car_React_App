@@ -70,15 +70,6 @@ function Navbar() {
                         </div>
 
                     </Button>
-                    <Button className='p-3 m-5 bg-black justify-center'>
-                        <div>
-                            <Link to='/InventoryForm' onClick={ clicked} className='flex place-itmes-center mt-4 lg:inline-block lg:mt-0
-                             text-teal-200 hover:text-white mr-4'>
-                                Inventory
-                            </Link>
-                        </div>
-
-                    </Button>
                     {
                         !auth.currentUser ?
 
